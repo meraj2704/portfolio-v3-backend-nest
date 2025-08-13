@@ -9,6 +9,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Module({
   imports: [
+    ConfigModule,
     PassportModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],
