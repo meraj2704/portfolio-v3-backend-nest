@@ -11,11 +11,8 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "skipLibCheck": true,           // important!
+    "strict": true,                 // enable all strict checks
+    "forceConsistentCasingInFileNames": true
   }
 }
