@@ -6,13 +6,17 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2023",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "downlevelIteration": true,
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "skipLibCheck": true,           // important!
-    "strict": true,                 // enable all strict checks
-    "forceConsistentCasingInFileNames": true
-  }
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false
+  },
+  "exclude": ["node_modules", "dist", "node_modules/effect"]
 }

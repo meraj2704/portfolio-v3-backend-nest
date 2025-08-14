@@ -2,7 +2,7 @@
 import { HttpStatus } from '@nestjs/common';
 import { IApiResponse } from '../interfaces/api-response.interface';
 
-export class ApiResponseBuilder<T> {
+export class ApiResponseBuilder {
   static success<T>(
     data: T,
     message = 'Success',

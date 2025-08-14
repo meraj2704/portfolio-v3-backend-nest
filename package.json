@@ -20,6 +20,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@effect/data": "^0.18.7",
+    "@effect/io": "^0.41.2",
     "@nestjs/common": "^11.1.6",
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.1.6",
@@ -64,7 +66,7 @@
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.9.2",
+    "typescript": "5.4.5",
     "typescript-eslint": "^8.20.0"
   },
   "jest": {

@@ -20,7 +20,17 @@ async function bootstrap() {
     .setTitle('Portfolio Backend API')
     .setDescription('API documentation for the Portfolio backend project')
     .setVersion('1.0')
-    .addBearerAuth() // Enables JWT auth in Swagger UI
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        name: 'JWT',
+        description: 'Enter JWT token',
+        in: 'header',
+      },
+      'JWT', // This name must match the @ApiBearerAuth('JWT') in your controller
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

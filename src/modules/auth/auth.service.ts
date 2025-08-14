@@ -1,4 +1,3 @@
-import { id } from './../../../node_modules/effect/src/Fiber';
 import {
   ConflictException,
   HttpStatus,
@@ -90,8 +89,9 @@ export class AuthService {
     return user;
   }
 
-  private handleRegistrationError(error: Error, email: string) {
-    this.logger.error(`Registration failed for ${email}`, error.stack);
+  private handleRegistrationError(error: unknown, email: string) {
+    const errorMessage = error instanceof Error ? error.stack : String(error);
+    this.logger.error(`Registration failed for ${email}`, errorMessage);
 
     if (error instanceof ConflictException) throw error;
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
@@ -100,8 +100,9 @@ export class AuthService {
     throw new InternalServerErrorException('Registration failed');
   }
 
-  private handleLoginError(error: Error, email: string) {
-    this.logger.error(`Login failed for ${email}`, error.stack);
+  private handleLoginError(error: unknown, email: string) {
+    const errorMessage = error instanceof Error ? error.stack : String(error);
+    this.logger.error(`Login failed for ${email}`, errorMessage);
 
     if (error instanceof UnauthorizedException) throw error;
     throw new InternalServerErrorException('Login failed');
