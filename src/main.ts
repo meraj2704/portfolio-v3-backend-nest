@@ -7,7 +7,14 @@ import { ApiResponseInterceptor } from './common/interceptors/api-response.inter
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.enableCors({
+    origin: true, // Allow all origins (or specify domains like ['http://example.com'])
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    credentials: true, // Allow cookies & auth headers
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  });
   // Global Filters & Pipes
   app.useGlobalInterceptors(new ApiResponseInterceptor());
   app.useGlobalFilters(new HttpExceptionFilter());
